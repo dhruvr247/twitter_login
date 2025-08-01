@@ -14,7 +14,7 @@ class Oauth2 {
   }) async {
     final _httpClient = http.Client();
     final res = await _httpClient.post(
-      Uri.parse('https://api.twitter.com/oauth2/token').replace(
+      Uri.parse('https://api.x.com/oauth2/token').replace(
         queryParameters: {'grant_type': 'client_credentials'},
       ),
       headers: <String, String>{
