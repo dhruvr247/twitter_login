@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -50,12 +51,16 @@ class TwitterLogin {
     String? resultURI;
     RequestToken requestToken;
     try {
+      log('LOG:Generating request token...${resultURI ?? '-'}');
       requestToken = await RequestToken.getRequestToken(
         apiKey,
         apiSecretKey,
         redirectURI,
         forceLogin,
       );
+
+      log('Request Token: $requestToken');
+
     } on Exception {
       throw PlatformException(
         code: '400',
